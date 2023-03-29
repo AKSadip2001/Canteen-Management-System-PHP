@@ -22,7 +22,7 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="">Home</span></a>
         <a class="nav-item nav-link" href="#">About</a>
-        <a class="nav-item nav-link" href="customerFeedback.html">Feedback</a>
+        <a class="nav-item nav-link" href="customerFeedback.php">Feedback</a>
       </div>
     </div>
   </nav>

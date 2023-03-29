@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar{
+    padding: 0 5rem;
+}
+
+.navbar-light .navbar-nav .nav-link.active{
+  color: yellow;
+  border-bottom: 0.2rem solid yellow;
+}
+
+.bg-light {
+    background-color: rgb(234, 0, 0)!important;
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+}
+
+.collapse{
+    justify-content: flex-end;
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+.navbar-light .navbar-brand {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-weight: 700;
+    margin: 1rem 0.75rem;
+    padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: yellow;
+  border-bottom: 0.2rem solid yellow;
+  transition: 0.5s;
+}
+
+.fa-solid{
+    margin-right: 0.4rem;
+}
+
+.main_container{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(234, 0, 0);
+    padding: 3rem;
+    gap: 5rem;
+}
+
+.main_container .left_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35rem;
+    gap: 1rem;
+}
+
+.main_container .left_content h3{
+    color: yellow;
+    font-weight: 700;
+}
+
+.main_container .left_content h1{
+    color: white;
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+.main_container .left_content button{
+    width: max-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: black;
+    background-color: yellow;
+    font-weight: 600;
+}
+
+.main_container .left_content button:hover{
+  background-color: transparent;
+  color: white;
+}
+
+.main_container .right_content{
+    width: 30rem;
+}
+
+.main_container .right_content img{
+    border-radius: 100%;
+    border: 0.2rem solid #f83426;
+    width: inherit;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+.slider {
+  margin-bottom: 30px;
+  position: relative;
+}
+.slider .owl-item.active.center .slider-card {
+  transform: scale(1.15);
+  opacity: 1;
+  background: #ff9966; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+.slider-card {
+  background: #fff;
+  padding: 0px 0px;
+  margin: 50px 15px 90px 15px;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.slider-card img {
+  border-radius: 5px 5px 0px 0px;
+  height: 15rem;
+}
+.owl-nav .owl-prev {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 0;
+  opacity: 1;
+  font-size: 30px !important;
+  z-index: 1;
+}
+.owl-nav .owl-next {
+  position: absolute;
+  top: calc(50% - 25px);
+  right: 0;
+  opacity: 1;
+  font-size: 30px !important;
+  z-index: 1;
+}
+.owl-dots {
+  text-align: center;
+}
+.owl-dots .owl-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background: #ccc !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  outline: none;
+}
+.owl-dots .owl-dot.active {
+  background: #f83426 !important;
+}
+
+footer {
+	background-color: #363e50;
+	line-height: 130px;
+	text-align: center;
+}
+
+footer .container .row{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer p {
+	line-height: 120px;
+	color: #fff;
+	margin-top: 5px;
+}
+
+footer p em {
+	font-style: normal;
+	color: #f2745f;
+	font-weight: 500;
+}

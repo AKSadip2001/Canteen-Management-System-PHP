@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar{
+    padding: 0 5rem;
+}
+
+.navbar-light .navbar-nav .nav-link.active{
+  color: #FA5557;
+  border-bottom: 0.2rem solid #FA5557;
+}
+
+.bg-light {
+    background-color: #F9A272!important;
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+}
+
+.collapse{
+    justify-content: center;
+    font-size: 1.4rem;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.navbar-light .navbar-brand {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-weight: 700;
+    margin: 1rem 0.75rem;
+    padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: #FA5557;
+  border-bottom: 0.2rem solid #FA5557;
+  transition: 0.5s;
+}
+
+.fa-solid{
+    margin-right: 0.4rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.food-menu{
+    background-color: #ececec;
+    padding: 4% 0;
+}
+.food-menu-box{
+    width: 35%;
+    margin: 1%;
+    padding: 2%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+}
+
+.food-menu-img{
+    width: 30%;
+}
+
+img{
+    width: 100%;
+}
+
+.food-menu-desc{
+    width: max-content;
+    margin-left: 5%;
+}
+
+.food-price{
+    font-size: 1.2rem;
+    margin: 2% 0;
+}
+
+footer {
+	background-color: #F9A272;
+	text-align: center;
+  padding: 1rem 0;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+}
+
+footer .container .row{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer p {
+	color: #fff;
+	margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+footer p em {
+	font-style: normal;
+	color: #f2745f;
+	font-weight: 500;
+}

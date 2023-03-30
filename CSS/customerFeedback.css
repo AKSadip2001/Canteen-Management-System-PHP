@@ -1,33 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-body{
-    background-color: #6a578d;
-    min-height: 100vh;
-}
-
 
 .navbar{
     padding: 0 5rem;
 }
 
 .navbar-light .navbar-nav .nav-link.active{
-  color: yellow;
-  border-bottom: 0.2rem solid yellow;
+  color: #FA5557;
+  border-bottom: 0.2rem solid #FA5557;
 }
 
 .bg-light {
-    background-color: #6a578d!important;
+    background-color: #F9A272!important;
     box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
 }
 
 .collapse{
-    justify-content: flex-end;
+    justify-content: center;
     font-size: 1.4rem;
     align-items: center;
+    margin-right: 5rem;
 }
 
 .navbar-light .navbar-brand {
@@ -44,8 +39,8 @@ body{
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
-  color: yellow;
-  border-bottom: 0.2rem solid yellow;
+  color: #FA5557;
+  border-bottom: 0.2rem solid #FA5557;
   transition: 0.5s;
 }
 
@@ -70,13 +65,14 @@ form{
 }
 
 .main_container{
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem 0;
+    padding: 2rem 0;
 }
 
-.container{
+.main_container .container{
     background-color: whitesmoke;
     padding: 0rem 4rem 3rem 4rem;
     border-radius: 2rem;
@@ -154,7 +150,7 @@ button{
   input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
-    background: #084cdf;
+    background: #FA5557;
     padding: 10px 20px;
     border-radius: 10px;
     color: #fff;
@@ -162,6 +158,35 @@ button{
     transition: background .2s ease-in-out;
   }
   
-  input[type=file]::file-selector-button:hover {
-    background: #0d45a5;
+  .btn{
+    background-color: #FA5557;
+    color: white;
   }
+
+  
+footer {
+	background-color: #F9A272;
+	text-align: center;
+  padding: 1rem 0;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .container .row{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer p {
+	color: #fff;
+	margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+footer p em {
+	font-style: normal;
+	color: #f2745f;
+	font-weight: 500;
+}

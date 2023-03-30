@@ -1,0 +1,50 @@
+.navbar-nav .nav-link.active {
+    color: #b64a0f;
+}
+
+.item-list-container {
+    background: url('../Pictures/watercolor-background_91008-403.avif') no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.footer {
+    background-color: #7e2d01;
+    color: #ffffff;
+}
+
+.footer a {
+    color: #ffffff;
+}
+
+.footer a:hover {
+    color: #AFEAE0;
+}
+
+.bg-yellow-light {
+    background: #FCEEBE;
+}
+
+.bg-orange {
+    background-color: #fc8240;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.clr-red {
+    color: #FA5557;
+}
+
+.clr-orange {
+    color: #fc8240;
+}
+
+.clr-orange-light {
+    color: #FBC2A3;
+}
+
+.clr-green {
+    color: #55823e;
+}

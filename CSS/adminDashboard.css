@@ -1,13 +1,33 @@
+/* navbar styles */
+.navbar-brand:hover {
+    color: #87B76f;
+}
+
 .navbar-nav .nav-link.active {
+    color: #b64a0f;
+    border-bottom: 2px solid #b64a0f;
+}
+
+.navbar-nav .nav-link:hover {
     color: #b64a0f;
 }
 
+/* main background styles */
 .item-list-container {
     background: url('../Pictures/watercolor-background_91008-403.avif') no-repeat;
     background-size: cover;
     height: 100%;
 }
 
+.btn-add {
+    background-color: #fc8240;
+}
+
+.btn-add:hover {
+    background-color: #87B76f;
+}
+
+/* footer styles */
 .footer {
     background-color: #7e2d01;
     color: #ffffff;
@@ -21,6 +41,7 @@
     color: #AFEAE0;
 }
 
+/* utilities */
 .bg-yellow-light {
     background: #FCEEBE;
 }

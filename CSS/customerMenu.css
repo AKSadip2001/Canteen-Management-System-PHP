@@ -1,11 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .navbar{
-    padding: 0 5rem;
+  padding: 0 5rem;
 }
 
 .navbar-light .navbar-nav .nav-link.active{
@@ -14,28 +14,28 @@
 }
 
 .bg-light {
-    background-color: #F9A272!important;
-    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+  background-color: #F9A272!important;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
 }
 
 .collapse{
-    justify-content: center;
-    font-size: 1.4rem;
-    align-items: center;
-    margin-right: 5rem;
+  justify-content: center;
+  font-size: 1.4rem;
+  align-items: center;
+  margin-right: 5rem;
 }
 
 .navbar-light .navbar-brand {
-    font-size: 1.5rem;
-    color: white;
-    font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: white;
-    font-weight: 700;
-    margin: 1rem 0.75rem;
-    padding: 0;
+  color: white;
+  font-weight: 700;
+  margin: 1rem 0.75rem;
+  padding: 0;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
@@ -45,53 +45,52 @@
 }
 
 .fa-solid{
-    margin-right: 0.4rem;
+  margin-right: 0.4rem;
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .content{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .food-menu{
-    background-color: #ececec;
-    padding: 4% 0;
+  background-color: #ececec;
+  padding: 4% 0;
 }
 .food-menu-box{
-    width: 35%;
-    margin: 1%;
-    padding: 0.5%;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
+  width: 28%;
+  margin: 1%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .food-menu-box .food-menu-img{
-    width: 30%;
-    padding: 0.5rem;
+  width: 35%;
+  padding: 0.5rem;
 }
 
 .food-menu-img img{
-    width: 100%;
-    border-radius: 5%;
+  width: 100%;
+  border-radius: 5%;
 }
 
 .food-menu-desc{
-    width: max-content;
-    margin-left: 5%;
+  width: max-content;
+  margin-left: 5%;
 }
 
-.food-price{
-    font-size: 1.2rem;
-    margin: 2% 0;
+.productname{
+  font-size: 1.2rem;
 }
+
 
 footer {
 	background-color: #F9A272;
@@ -103,8 +102,8 @@ footer {
 }
 
 footer .container .row{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 footer p {
@@ -117,4 +116,70 @@ footer p em {
 	font-style: normal;
 	color: #f2745f;
 	font-weight: 500;
+}
+
+.price{
+  font-size: 1.2rem;
+  margin: 2% 0;
+}
+
+.cart-container {
+  border:1px solid white;
+  border-radius:5px;
+  margin-top:1em;
+  padding:1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-container h2{
+  font-size: 2.5rem;
+  color: #F9A272;
+}
+
+button, input[type="submit"] { 
+  border:1px solid #FA6900; 
+  color:#fff; 
+  background: #F38630; 
+  padding:0.6em 1em;
+  font-size:0.9em; 
+  line-height:1; 
+  border-radius: 1.2em;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+button:hover, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active {
+  background: #A7DBD8;
+  border-color:#69D2E7;
+  color:#000;
+  cursor: pointer;
+}
+table {
+  margin-bottom:1em;
+  border-collapse:collapse;
+}
+table td, table th {
+  text-align:left;
+  padding:0.25em 1em;
+  border-bottom:1px solid #E0E4CC;
+}
+.cart-buttons {
+  width:auto;
+  display:flex;
+  justify-content:flex-end;
+  padding:1em 0;
+}
+#emptycart {
+  margin-right:1em;
+}
+table td:nth-last-child(1) {
+  text-align:right;
+}
+.message {
+  text-align: center;
+  color:white;
+  padding:0.5em 0;
+  margin:1em 0;
+  font-size: larger;
+  background-color: #679996;
 }

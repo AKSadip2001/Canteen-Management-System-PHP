@@ -29,11 +29,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-2">
+                    <li class="nav-item px-2 text-center">
+                        <a class="nav-link clr-orange" aria-current="page" href="./adminDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item px-2 text-center">
                         <a class="nav-link active clr-orange" aria-current="page" href="#">Items List</a>
                     </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link clr-orange" href="#">Feedbacks</a>
+                    <li class="nav-item px-2 text-center">
+                        <a class="nav-link clr-orange" href="./adminFeedback.html">Feedbacks</a>
                     </li>
                 </ul>
                 <div class="d-flex justify-content-center align-items-center">
@@ -46,29 +49,36 @@
         </div>
     </nav>
 
-    <!-- list table -->
     <main class="item-list-container py-5">
+
         <h1 class="mb-3 fw-bold text-center"><i class="bi bi-card-checklist fs-1"></i> Add item</h1>
-        <div class="col-8 bg-white shadow-lg border p-5 mx-auto mb-5">
+
+        <!-- add item form -->
+        <div class="bg-white shadow-lg rounded-3 col-12 col-sm-10 col-md-8 border px-3 px-md-5 py-5 mx-auto mb-5">
             <form class="d-flex flex-column align-items-center">
                 <div class=" mb-3 w-100">
-                    <input type="text" placeholder="Food Name" class="form-control border-0 border-bottom rounded-0"
-                        id="exampleInputName" aria-describedby="emailHelp">
+                    <input type="text" name="name" placeholder="Food Name"
+                        class="form-control border-0 border-bottom rounded-0" id="exampleInputName"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3 w-100">
-                    <input type="text" placeholder="Food Price" class="form-control border-0 border-bottom rounded-0"
-                        id="exampleInputPrice" aria-describedby="emailHelp">
+                    <input type="text" name="price" placeholder="Food Price"
+                        class="form-control border-0 border-bottom rounded-0" id="exampleInputPrice"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3 w-100">
-                    <input type="text" placeholder="Food Photo URL"
+                    <input type="text" name="photoURL" placeholder="Food Photo URL"
                         class="form-control border-0 border-bottom rounded-0" id="exampleInputPhotoURL"
                         aria-describedby="emailHelp">
                 </div>
-                <button type="button" class="btn bg-orange text-light btn-lg px-5">Add</button>
+                <button onclick="handleAddItems()" type="button" class="btn text-light btn-lg px-5 btn-add">Add</button>
             </form>
         </div>
+
         <h1 class="pt-5 mb-3 fw-bold text-center"><i class="bi bi-card-checklist fs-1"></i> List of items available</h1>
-        <div class="bg-white shadow-lg col-10 mx-auto mb-5 p-5">
+
+        <!-- list table -->
+        <div class="bg-white shadow-lg rounded-3 col-12 col-md-10 px-0 px-sm-3 px-md-5 py-5 mx-auto mb-5">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -79,7 +89,7 @@
                         <th scope="col-1"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                     <tr>
                         <th scope="row" class="align-middle">1</th>
                         <td class="align-middle">Vegetable Sandwich</td>
@@ -87,7 +97,7 @@
                         <td class="align-middle">'./Pictures/Food/sandwich.jpg'</td>
                         <td>
                             <i class="btn btn-outline-success bi bi-pencil-square"></i>
-                            <i class="btn btn-outline-danger bi bi-archive"></i>
+                            <i class="btn btn-outline-danger bi bi-archive" id="btnDelete"></i>
                         </td>
                     </tr>
                     <tr>
@@ -129,14 +139,14 @@
     <!-- footer -->
     <footer class="footer py-5">
         <div class="container">
-            <div class="d-flex justify-content-evenly">
-                <div class="">
+            <div class="d-block d-sm-flex justify-content-evenly text-center text-sm-start">
+                <div class="mb-5 mb-sm-0">
                     <a href="http://www.iub.edu.bd/" class="text-decoration-none fs-5 fw-medium">
                         <i class="bi bi-building"></i>
                         Independent University, Bangladesh</a>
                     <p class="mt-3 ms-4">Opening hours: From Sunday to Saturday 8am-8pm</p>
                 </div>
-                <div class="">
+                <div>
                     <p class="fs-5 fw-medium mb-3">Contact us</p>
                     <a href="mailto: lamisaferdous19@gmail.com" class="text-decoration-none">
                         <i class="bi bi-envelope"></i>
@@ -151,6 +161,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- js -->
+    <script src="./JS/adminItemsList.js"></script>
 </body>
 
 </html>

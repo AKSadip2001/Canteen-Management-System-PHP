@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Nunito', sans-serif;
 }
 
 .navbar{
   padding: 0 5rem;
+  position: static;
 }
 
 .navbar-light .navbar-nav .nav-link.active{
-  color: #FA5557;
-  border-bottom: 0.2rem solid #FA5557;
+color: #FA5557;
+
 }
 
 .bg-light {
-  background-color: #F9A272!important;
+  background-color: white!important;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
 }
 
@@ -26,21 +29,20 @@
 
 .navbar-light .navbar-brand {
   font-size: 1.5rem;
-  color: white;
+  color: #FA5557;
   font-weight: 700;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color: #FA5557;
   font-weight: 700;
   margin: 1rem 0.75rem;
   padding: 0;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
-  color: #FA5557;
-  border-bottom: 0.2rem solid #FA5557;
-  transition: 0.5s;
+color: rgb(14, 97, 14);
+transition: 0.5s;
 }
 
 .fa-solid{

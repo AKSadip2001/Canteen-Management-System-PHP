@@ -92,6 +92,12 @@ function updateCartTotal(){
     document.getElementById("carttable").innerHTML = carttable;
     //update items in cart on website HTML
     document.getElementById("itemsquantity").innerHTML = items;
+    
+    document.getElementById('checkout').onclick = function() {
+        var bal = document.getElementById("balance").innerHTML;
+        balance = parseFloat(bal?.split('Balance: ')[1] || 0);
+        document.getElementById("balance").innerHTML = "Balance: " + (balance-total).toFixed(1);
+    };
 }
 //user feedback on successful add
 function addedToCart(pname) {
@@ -128,6 +134,9 @@ function checkOut() {
       if(alerts.classList.contains("message")){
           alerts.classList.remove("message");
       }
+      alert("Order Confirmed!\nPick up parcel within 30mins.");
     }
-    alert("Order Confirmed!\nPick up parcel within 30mins.")
+    
+
+
 }

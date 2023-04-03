@@ -1,22 +1,39 @@
+/* sidebar styles */
+.sidebar {
+    background: linear-gradient(to bottom, #fc8240 30%, #b64a0f 80%, #7e2d01 100%);
+    /* background-color: #b64a0f; */
+    color: #ffffff;
+    width: 280px;
+}
+
+@media screen and (max-width: 767px) {
+    .sidebar {
+        width: 60px;
+    }
+}
+
 /* navbar styles */
 .navbar-brand:hover {
     color: #87B76f;
 }
 
-.navbar-nav .nav-link.active {
-    color: #b64a0f;
-    border-bottom: 2px solid #b64a0f;
+.nav-pills .nav-link.active {
+    background-color: #FBC2A3;
+    color: #55823e;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #b64a0f;
+.nav-item .nav-link {
+    color: #ffffff;
+}
+
+.nav-item .nav-link:hover {
+    border: 1px solid #ffffff;
 }
 
 /* main background styles */
 .item-list-container {
     background: url('../Pictures/watercolor-background_91008-403.avif') no-repeat;
     background-size: cover;
-    height: 100%;
 }
 
 .btn-add {
@@ -27,9 +44,17 @@
     background-color: #87B76f;
 }
 
+.btn-dashboard {
+    box-shadow: 10px 10px 20px 0px #d6c384;
+}
+
+.btn-dashboard:hover {
+    background-color: #fc8240;
+}
+
 /* footer styles */
 .footer {
-    background-color: #7e2d01;
+    background: linear-gradient(to bottom, #b64a0f 20%, #7e2d01 100%);
     color: #ffffff;
 }
 
@@ -52,6 +77,18 @@
 
 .bg-white {
     background-color: #ffffff;
+}
+
+.bg-red {
+    background-color: #f57375;
+}
+
+.bg-green {
+    background-color: #90be79;
+}
+
+.bg-blue {
+    background-color: #8ddfdc;
 }
 
 .clr-red {

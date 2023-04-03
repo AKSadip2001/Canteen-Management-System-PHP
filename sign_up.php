@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
   </head>
   <body>
-    <section class="vh-100" style="background-color: #6a578d;">
+    <section class="vh-100" style="background-color: #b8161e;">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-lg-12 col-xl-9">
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                       </div>
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <input type="Submit" class="btn btn-primary btn-lg" value="Register">
+                        <input type="Submit" class="btn btn-primary btn-lg" value="Register" style="background-color: #b8161e;">
                       </div>
                     </form>
                   </div>

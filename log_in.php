@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Log In">
         
         <p class="para-2">
-            Not have an account? <a href="sign_up.php">Sign Up Here</a>
+            Do not have an account? <a href="sign_up.php">Sign Up</a>
         </p>
       </form>
     </div>

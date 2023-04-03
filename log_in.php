@@ -23,7 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $row = $result->fetch_assoc();
       $data = $row['Result'];
       if($data[0]=='1'){
-        header("Location:index.php");
+        if($userId=="admin"){
+          header("Location:adminDashboard.html");
+        }
+        else{
+          header("Location:customerView.html");
+        }
       }
       else{
         echo '<script>

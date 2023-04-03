@@ -11,7 +11,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link.active{
-color: #b8161e;
+color: black;
 
 }
 
@@ -29,23 +29,38 @@ color: #b8161e;
 .navbar-light .navbar-brand {
   font-size: 1.5rem;
   color: #b8161e;
-  font-weight: 700;
+  font-weight: bolder;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #b8161e;
-  font-weight: bolder;
-  margin: 1rem 0.75rem;
+  margin: 1rem 0.25rem;
   padding: 0;
+  font-weight: bolder;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5%;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
-color: black;
-transition: 0.5s;
+  color: black;
+  transition: 0.5s;
+  background-color: #cccccc40;
 }
 
 .fa-solid{
   margin-right: 0.4rem;
+}
+
+.sign_out{
+  color: black;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.sign_out:hover{
+  color: #b8161e;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 img{

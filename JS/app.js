@@ -101,7 +101,7 @@ function updateCartTotal(){
 }
 //user feedback on successful add
 function addedToCart(pname) {
-  var message = "\"" + pname + "\"" + " was added to the cart";
+  var message = "\"" + pname + "\"" + " added to cart";
   var alerts = document.getElementById("alerts");
   alerts.innerHTML = message;
   if(!alerts.classList.contains("message")){

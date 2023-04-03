@@ -169,12 +169,9 @@ footer {
 	background-color: #b8161e;
 	text-align: center;
   padding: 1rem 0;
-  height: 15;
+  height: 15vh;
   display: flex;
   align-items: center;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
 }
 
 footer .container .row{

@@ -87,7 +87,6 @@
   padding: 5rem;
 	background-position: center center;
   text-align: left;
- 
 }
 .main_container .content{
     display: flex;
@@ -95,6 +94,7 @@
     justify-content: center;
     width: 35rem;
     gap: 1rem;
+    margin-top: 3rem;
 }
 .main_container .content h3{
     color: white;
@@ -103,12 +103,11 @@
 }
 
 .main_container .content h1{
-    color: #c3020b;
+    color: #e5000b;
     font-weight: bolder;
     font-size: 5rem;
+    animation: glow alternate both 1s infinite left ease-out;
 }
-
-
 
 .button{
   display: flex;
@@ -224,25 +223,43 @@ footer p em {
 
 /* About Section */
 
+#about{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#about h1{
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bolder;
+  color: #b8161e;
+}
 
 #about .about {
 	display: flex;
-	margin: 0 10%;
-	padding: 100px 0px;
+  padding: 1rem;
+  gap: 8rem;
 }
 
-#about .left_content {
-	width: 100%;
-}
-#about .left_content h2 {
-	font-size: 2.5rem;
-	font-weight: 500;
-	letter-spacing: 0.2rem;
-	margin-bottom: 10px;
-	font-weight: bolder;
-	font-style: oblique;
-}
-#about .left_content p {
-	margin-bottom: 20px;
+#about .about .left_content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55%;
 }
 
+#about .about .left_content p{
+  color: black;
+}
+
+#about .about .right_content{
+  width: 45%;
+  display: flex;
+  align-items: center;
+}
+
+#about .about .right_content img{
+  width: 100%;
+}

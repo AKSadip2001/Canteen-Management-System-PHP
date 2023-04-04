@@ -89,24 +89,76 @@
   text-align: left;
 }
 .main_container .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 35rem;
-    gap: 1rem;
-    margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35rem;
+  gap: 1rem;
+  margin-top: 3rem;
 }
 .main_container .content h3{
-    color: white;
-    font-weight: bolder;
-
+  color: white;
+  font-weight: bolder;
 }
 
-.main_container .content h1{
-    color: #e5000b;
-    font-weight: bolder;
-    font-size: 5rem;
-    animation: glow alternate both 1s infinite left ease-out;
+.main_container .content h1 {
+	display: block;
+	width: fit-content;
+	font-size: 5rem;
+	position: relative;
+	color: transparent;
+  font-weight: bolder;
+	animation: text_reveal 0.5s ease forwards;
+	animation-delay: 1s;
+}
+
+.main_container .content h1:nth-child(2) {
+	animation-delay: 2s;
+}
+
+.main_container .content h1:nth-child(3) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 3s;
+}
+
+.main_container .content h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: white;
+	animation: text_reveal_box 1s ease;
+	animation-delay: 0.5s;
+}
+
+.main_container .content h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+
+.main_container .content h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: #e5000b;
+	}
+}
+@keyframes text_reveal_name {
+	100% {
+		color: #e5000b;
+  }
 }
 
 .button{

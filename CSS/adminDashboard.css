@@ -34,6 +34,11 @@
 .item-list-container {
     background: url('../Pictures/watercolor-background_91008-403.avif') no-repeat;
     background-size: cover;
+    object-fit: cover;
+}
+
+.feedback-container {
+    min-height: 80vh;
 }
 
 .btn-add {

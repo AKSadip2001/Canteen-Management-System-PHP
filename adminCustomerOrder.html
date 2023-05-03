@@ -50,7 +50,7 @@
             </li>
         </ul>
     </div>
-
+    
     <!------------------ contents ---------------------->
     <div class="w-100">
         <!-- navbar -->
@@ -69,24 +69,59 @@
                 </div>
             </div>
         </nav>
+        
+         
+            
 
         <!-- dashboard -->
-        <div class="container-fluid bg-yellow-light text-center pb-5">
-            <div class="mb-3">
-                <img src=" ./Pictures/chefs-removebg-preview.png" class="img-fluid" alt="...">
+        <main class="item-list-container feedback-container py-5">
+            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-view-list fs-1"></i> Order List</h1><div class="accordion col-10 col-md-7 mx-auto shadow-lg" id="accordionExample">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">OrderID</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Order List</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Order Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Food01</th>
+                        <td>2022700</td>
+                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
+                            <span class="badge badge-pill badge-success">View</span>
+                            <!-- <div class="popup" id="popup"> -->
+                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
+                              </div>
+                        </td>
+                        <td>100 tk</td>
+                        <td><button type="button" class="btn btn-primary">
+                            <span class="badge badge-pill badge-success">Delivered</span>
+                          </button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Food02</th>
+                        <td>1910807</td>
+                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
+                            <span class="badge badge-pill badge-success">View</span>
+                            <!-- <div class="popup" id="popup"> -->
+                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
+                              </div>
+                        </td>
+                        <td>50 tk</td>
+                        <td><button type="button" class="btn btn-primary">
+                            <span class="badge badge-pill badge-success">Pending</span>
+                          </button></td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
             </div>
-            <div>
-                <button type=" button" class="btn btn-dashboard bg-green px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminItemsList.html" class="text-white"><i
-                            class="bi bi-menu-down fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-red px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a href=""
-                        class="text-white"><i class="bi bi-wallet2 fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-blue px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminFeedback.html" class="text-white"><i
-                            class="bi bi-envelope-open fs-1"></i></a></button>
-            </div>
-        </div>
+        </main>
 
+    
         <!-- footer -->
         <footer class="footer py-5">
             <div class="container">

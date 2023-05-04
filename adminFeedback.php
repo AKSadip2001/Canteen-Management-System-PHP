@@ -15,42 +15,42 @@
 </head>
 
 <body class="d-flex">
-    <!------------------- sidebar ---------------------->
-    <div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
+<div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
         <ul class="nav nav-pills flex-column mb-auto mt-3">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">
+                <a class="nav-link" href="./adminDashboard.php">
                     <i class="bi bi-house-door fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminItemsList.html">
+                <a class="nav-link" href="./adminItemsList.php">
                     <i class="bi bi-menu-down fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Menu</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminBalanceReq.html">
+                <a class="nav-link" aria-current="page" href="./adminBalanceReq.php">
                     <i class="bi bi-wallet2 fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Balance Request</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminCustomerOrder.html">
+                <a class="nav-link" href="./adminCustomerOrder.php">
                     <i class="bi bi-view-list fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Customer Orders</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminFeedback.html">
+                <a class="nav-link active" href="">
                     <i class="bi bi-envelope-open fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Feedbacks</span>
                 </a>
             </li>
         </ul>
     </div>
-    
+
+    <!------------------ contents ---------------------->
     <div class="w-100">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-yellow-light fs-5">
@@ -63,68 +63,45 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="mb-0 me-1 me-md-3 clr-green fw-medium">Admin</p>
                     <a href="./log_in.php" class="btn btn-outline-success fw-medium" type="submit"><i
-                            class="bi bi-person-circle me-2"></i>Logout</a>
+                            class="bi bi-person-circle me-2"></i>Log
+                        out</a>
                 </div>
             </div>
         </nav>
-        
-         
-            
 
-        <!-- dashboard -->
         <main class="item-list-container feedback-container py-5">
-            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-view-list fs-1"></i> Order List</h1>
-            <div class="accordion col-10 col-md-10 mx-auto shadow-lg" id="accordionExample">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">OrderID</th>
-                        <th scope="col">Customer ID</th>
-                        <th scope="col">Order List</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Order Date-Time</th>
-                        <th scope="col">Order Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Food01</th>
-                        <td>2022700</td>
-                        <td>Tea -1</td>
-                        <td>100 tk</td>
-                        <td>2023-05-04 13:00:00</td>
-                        <td><button type="button" class="btn btn-primary">
-                            <span class="badge badge-pill badge-success">Delivered</span>
-                          </button></td>
-                      </tr>
+            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-envelope-open fs-1"></i> Feedbacks</h1>
+            <div class="accordion col-10 col-md-7 mx-auto shadow-lg" id="accordionFlushExample">
+                <?php
+                include 'connection.php';
 
-                      <tr>
-                        <th scope="row">Food02</th>
-                        <td>1910807</td>
-                        <td>Sandwich -1</td>
-                        <td>50 tk</td>
-                        <td>2023-05-04 13:00:00</td>
-                        <td><button type="button" class="btn btn-primary">
-                            <span class="badge badge-pill badge-success">Pending</span>
-                          </button></td>
-                      </tr>
-                     
-                      <tr>
-                        <th scope="row">Food03</th>
-                        <td>1920573</td>
-                        <td>BBQ Chicken -1, Tea-3</td>
-                        <td>110 tk</td>
-                        <td>2023-05-04 13:00:00</td>
-                        <td><button type="button" class="btn btn-primary">
-                            <span class="badge badge-pill badge-success">Pending</span>
-                          </button></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                $sql = "SELECT * FROM `feedbacks`";
+                $result = mysqli_query($db, $sql);
+                $count = 0;
+                while($row = mysqli_fetch_array($result)){
+                    echo '
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#'.$count.'" aria-expanded="false" aria-controls="'.$count.'">
+                                <strong>'.$row['subject'].'</strong>
+                            </button>
+                        </h2>
+                        <div id="'.$count.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>User ID - <strong>'.$row['userId'].'</strong></p>
+                                <p>Feedback - <strong>'.$row['message'].'</strong></p>
+                                <a href="./Pictures/Feedback/'.$row['photo'].'" download class="btn btn-primary">Image</a>
+                            </div>
+                        </div>
+                    </div>';
+                    $count++;
+                }
+                ?>
             </div>
         </main>
 
-    
         <!-- footer -->
         <footer class="footer py-5">
             <div class="container">

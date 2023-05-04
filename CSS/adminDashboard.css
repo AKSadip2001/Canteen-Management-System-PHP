@@ -51,6 +51,7 @@
 
 .btn-dashboard {
     box-shadow: 10px 10px 20px 0px #d6c384;
+    width: 12.5rem;
 }
 
 .btn-dashboard:hover {
@@ -114,4 +115,9 @@
 
 .clr-green {
     color: #55823e;
+}
+
+.info{
+    color: white;
+    font-weight: bold;
 }

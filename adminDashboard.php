@@ -1,3 +1,27 @@
+<?php
+include 'connection.php';
+
+$sql = "SELECT COUNT(*) AS count FROM `menu`";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result);
+$items = $row['count'];
+
+$sql = "SELECT COUNT(*) AS count FROM `notification` WHERE status='0'";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result);
+$balRequests = $row['count'];
+
+$sql = "SELECT COUNT(*) as count FROM `orders` WHERE status='0';";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result);
+$orders = $row['count'];
+
+$sql = "SELECT COUNT(*) AS count FROM `feedbacks`";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result);
+$feedbacks = $row['count'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,24 +99,26 @@
             <div class="mb-3">
                 <img src=" ./Pictures/chefs-removebg-preview.png" class="img-fluid" alt="...">
             </div>
-            <div>
-                <button href="./adminItemsList.php" type=" button" class="btn btn-dashboard bg-green px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
-                    <a href="./adminItemsList.php"><i class="bi bi-menu-down fs-1 text-white"></i></a>
+            <div class="d-flex-wrap">
+                <button href="./adminItemsList.php" type=" button" class="btn btn-dashboard bg-green px-4 pt-3 pb-4 mx-2 mx-md-4 rounded-4">
+                    <a class="d-flex flex-column" href="./adminItemsList.php"><i class="bi bi-menu-down fs-1 text-white"></i></a>
+                    <span class="info">Menu Items: <?php echo $items ?></span>
                 </button>
 
-                <button type="button" class="btn btn-dashboard bg-red px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
-                    <a href="./adminBalanceReq.php"><i class="bi bi-wallet2 fs-1 text-white"></i></a>
+                <button type="button" class="btn btn-dashboard bg-red px-4 pt-3 pb-4 mx-2 mx-md-4 rounded-4">
+                    <a class="d-flex flex-column" href="./adminBalanceReq.php"><i class="bi bi-wallet2 fs-1 text-white"></i></a>
+                    <span class="info">Balance Requests: <?php echo $balRequests ?></span>
                 </button>
             
-                <button type="button" class="btn btn-dashboard bg-blue px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
-                    <a href="./adminCustomerOrder.php"><i class="bi bi-view-list fs-1 text-white"></i></a>
+                <button type="button" class="btn btn-dashboard bg-blue px-4 pt-3 pb-3 mx-2 mx-md-4 rounded-4">
+                    <a class="d-flex flex-column" href="./adminCustomerOrder.php"><i class="bi bi-view-list fs-1 text-white"></i></a>
+                    <span class="info">Pending Orders: <?php echo $orders ?></span>
                 </button>
             
-                <button type="button" class="btn btn-dashboard bg-purple px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
-                    <a href="./adminFeedback.php"><i class="bi bi-envelope-open fs-1 text-white"></i></a>
+                <button type="button" class="btn btn-dashboard bg-purple px-4 pt-3 pb-3 mx-2 mx-md-4 rounded-4">
+                    <a class="d-flex flex-column" href="./adminFeedback.php"><i class="bi bi-envelope-open fs-1 text-white"></i></a>
+                    <span class="info">Feedbacks: <?php echo $feedbacks ?></span>
                 </button>
-               
-
             </div>
         </div>
 

@@ -52,42 +52,20 @@ $_SESSION['userId'] = $userId;
       <h1 class="text-center">Today's Special</h1>
       <div class="slider">
           <div class="owl-carousel">
-            <div class="slider-card">
-              <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="./Pictures/Food/donut.jpg" alt="" >
-              </div>
-              <h5 class="mb-0 text-center"><b>Strawberry Donut</b></h5>
-              <p class="text-center p-4">Tk 60/-</p>
-            </div>
-            <div class="slider-card">
-              <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="./Pictures/Food/chicken_tikka.jpg" alt="">
-              </div>
-              <h5 class="mb-0 text-center"><b>Chicken Tikka</b></h5>
-              <p class="text-center p-4">TK 50/-</p>
-            </div>
-
-            <div class="slider-card">
-              <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="./Pictures/Food/bbq_chicken.jpg" alt="" >
-              </div>
-              <h5 class="mb-0 text-center"><b>BBQ Chicken</b></h5>
-              <p class="text-center p-4">Tk 80/-</p>
-            </div>
-            <div class="slider-card">
-              <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="./Pictures/Food/sub_sandwich.jpg" alt="">
-              </div>
-              <h5 class="mb-0 text-center"><b>Sub Sandwich</b></h5>
-              <p class="text-center p-4">TK 100/-</p>
-            </div>
-            <div class="slider-card">
-              <div class="d-flex justify-content-center align-items-center mb-4">
-                <img src="./Pictures/Food/bbq_pizza_slice.jpg" alt="">
-              </div>
-              <h5 class="mb-0 text-center"><b>BBQ Pizza Slice</b></h5>
-              <p class="text-center p-4">TK 80/-</p>
-            </div>
+            <?php
+            $sql = "SELECT * FROM `menu` WHERE foodImage LIKE '%special%';";
+            $result = mysqli_query($db, $sql);
+            while($row = mysqli_fetch_array($result)){
+              echo '<div class="slider-card">
+                      <div class="d-flex justify-content-center align-items-center mb-4">
+                        <img src="./Pictures/Food/'.$row['foodImage'].'" alt="" >
+                      </div>
+                      <h5 class="mb-0 text-center"><b>'.$row['foodName'].'</b></h5>
+                      <p class="text-center p-4">Tk '.$row['foodPrice'].'/-</p>
+                    </div>';
+            }
+            ?>
+          </div>
             
           </div>
         </div>

@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($result)
           </div>
           <div class="modal-body">
             <table class="table">
-              <thead class="table" style="background-color: #8a0007; color: white;">
+              <thead class="table" style="background-color: #b8161e; color: white;">
                 <tr>
                   <th scope="col">Order#</th>
                   <th scope="col">Items</th>

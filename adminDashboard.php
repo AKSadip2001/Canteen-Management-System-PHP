@@ -76,14 +76,30 @@
                 <img src=" ./Pictures/chefs-removebg-preview.png" class="img-fluid" alt="...">
             </div>
             <div>
-                <button type=" button" class="btn btn-dashboard bg-green px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminItemsList.html" class="text-white"><i
-                            class="bi bi-menu-down fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-red px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a href=""
-                        class="text-white"><i class="bi bi-wallet2 fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-blue px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminFeedback.html" class="text-white"><i
-                            class="bi bi-envelope-open fs-1"></i></a></button>
+                <a href="./adminItemsList.php">
+                    <button type=" button" class="btn btn-dashboard bg-green px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
+                        <i class="bi bi-menu-down fs-1 text-white"></i>
+                    </button>
+                </a>
+
+                <a href="./adminBalanceReq.php">
+                    <button type="button" class="btn btn-dashboard bg-red px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
+                        <i class="bi bi-wallet2 fs-1 text-white"></i>
+                    </button>
+                </a>
+
+                <a href="./adminCustomerOrder.php">
+                    <button type="button" class="btn btn-dashboard bg-blue px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
+                        <i class="bi bi-view-list fs-1 text-white"></i>
+                    </button>
+                </a>
+
+                <a href="./adminFeedback.php">
+                    <button type="button" class="btn btn-dashboard bg-purple px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4">
+                        <i class="bi bi-envelope-open fs-1 text-white"></i>
+                    </button>
+                </a>
+
             </div>
         </div>
 

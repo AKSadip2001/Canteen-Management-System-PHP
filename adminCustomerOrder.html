@@ -51,7 +51,6 @@
         </ul>
     </div>
     
-    <!------------------ contents ---------------------->
     <div class="w-100">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-yellow-light fs-5">
@@ -64,8 +63,7 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="mb-0 me-1 me-md-3 clr-green fw-medium">Admin</p>
                     <a href="./log_in.php" class="btn btn-outline-success fw-medium" type="submit"><i
-                            class="bi bi-person-circle me-2"></i>Log
-                        out</a>
+                            class="bi bi-person-circle me-2"></i>Logout</a>
                 </div>
             </div>
         </nav>
@@ -75,14 +73,16 @@
 
         <!-- dashboard -->
         <main class="item-list-container feedback-container py-5">
-            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-view-list fs-1"></i> Order List</h1><div class="accordion col-10 col-md-7 mx-auto shadow-lg" id="accordionExample">
+            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-view-list fs-1"></i> Order List</h1>
+            <div class="accordion col-10 col-md-10 mx-auto shadow-lg" id="accordionExample">
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">OrderID</th>
-                        <th scope="col">ID</th>
+                        <th scope="col">Customer ID</th>
                         <th scope="col">Order List</th>
-                        <th scope="col">Amount</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Order Date-Time</th>
                         <th scope="col">Order Status</th>
                       </tr>
                     </thead>
@@ -90,32 +90,35 @@
                       <tr>
                         <th scope="row">Food01</th>
                         <td>2022700</td>
-                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
-                            <span class="badge badge-pill badge-success">View</span>
-                            <!-- <div class="popup" id="popup"> -->
-                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
-                              </div>
-                        </td>
+                        <td>Tea -1</td>
                         <td>100 tk</td>
+                        <td>2023-05-04 13:00:00</td>
                         <td><button type="button" class="btn btn-primary">
                             <span class="badge badge-pill badge-success">Delivered</span>
                           </button></td>
                       </tr>
+
                       <tr>
                         <th scope="row">Food02</th>
                         <td>1910807</td>
-                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
-                            <span class="badge badge-pill badge-success">View</span>
-                            <!-- <div class="popup" id="popup"> -->
-                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
-                              </div>
-                        </td>
+                        <td>Sandwich -1</td>
                         <td>50 tk</td>
+                        <td>2023-05-04 13:00:00</td>
                         <td><button type="button" class="btn btn-primary">
                             <span class="badge badge-pill badge-success">Pending</span>
                           </button></td>
                       </tr>
                      
+                      <tr>
+                        <th scope="row">Food03</th>
+                        <td>1920573</td>
+                        <td>BBQ Chicken -1, Tea-3</td>
+                        <td>110 tk</td>
+                        <td>2023-05-04 13:00:00</td>
+                        <td><button type="button" class="btn btn-primary">
+                            <span class="badge badge-pill badge-success">Pending</span>
+                          </button></td>
+                      </tr>
                     </tbody>
                   </table>
             </div>

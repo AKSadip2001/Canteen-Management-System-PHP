@@ -4,6 +4,10 @@ include 'connection.php';
 
 session_start();
 
+if(!isset($_SESSION['userId'])){
+    header('Location: log_in.php');
+}
+
 $userId = $_SESSION['userId'];
 $_SESSION['userId'] = $userId;
 
@@ -60,7 +64,7 @@ if(isset($_POST['submit'])){
             <a class="nav-item nav-link active" href="">Feedback</a>
           </div>
         </div>
-        <a href="log_in.php"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
+        <a href="log_in.php?logOut=true" onclick="sessionStorage.clear()"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
     </nav>
 
     <div class="main_container">
@@ -73,7 +77,7 @@ if(isset($_POST['submit'])){
                     <h6 class="text-center">We would love to hear your thoughts, concerns or problems with anything so we can improve!</h6>
                 </div>
             </div>
-                <form action="customerFeedback.php" method="POST" enctype="multipart/form-data">
+                <form action="customerFeedback.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <label class="col-md-8">Subject* <br>

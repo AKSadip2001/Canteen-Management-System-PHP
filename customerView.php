@@ -3,6 +3,10 @@ include 'connection.php';
 
 session_start();
 
+if(!isset($_SESSION['userId'])){
+  header('Location: log_in.php');
+}
+
 $userId = $_SESSION['userId'];
 $_SESSION['userId'] = $userId;
 ?>
@@ -36,7 +40,7 @@ $_SESSION['userId'] = $userId;
       </div>
     </div>
     <a class="order_now" href="customerMenu.php">Order now</a>
-    <a href="log_in.php"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
+    <a href="log_in.php?logOut=true" onclick="sessionStorage.clear()"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
   </nav>
 
   <div class="main_container">

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_GET['logOut'])) {
+  session_destroy();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,7 @@
     <div class="main_container">
       <form class="form" action="verification.php" method="post">
         <h1>LOGIN</h1>
-        <input type="text" name="userId" placeholder="User name" id="username">
+        <input type="text" name="userId" placeholder="User name" id="username" autocomplete="off">
         <input type="password" name="password" placeholder="Password" id="pass">
         <label class="para-2">Show password <input type="checkbox" onclick="myfunction()"></label>
         <input type="submit" value="Log In">

@@ -2,6 +2,11 @@
 include 'connection.php';
 
 session_start();
+
+if(!isset($_SESSION['userId'])){
+  header('Location: log_in.php');
+}
+
 $userId = $_SESSION['userId'];
 $_SESSION['userId'] = $userId;
 
@@ -92,7 +97,7 @@ $row = mysqli_fetch_array($result)
     </div>
     <span class="orders" data-bs-toggle="modal" data-bs-target="#exampleModal">Orders <i class="fas fa-chevron-down"></i></span>
     <span class="balance" id="balance">Balance: <?php echo $row['userBalance'] ?> <i class="fas fa-plus-circle addBtn" onclick="addBal()"></i></span>
-    <a href="log_in.php"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
+    <a href="log_in.php?logOut=true" onclick="sessionStorage.clear()"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
   </nav>
 
   <section class="food-menu">

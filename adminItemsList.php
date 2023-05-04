@@ -138,7 +138,7 @@ if(isset($_POST['add'])){
 
             <!-- add item form -->
             <div class="bg-white shadow-lg rounded-3 col-12 col-sm-10 col-md-8 border px-3 px-md-5 py-5 mx-auto mb-5">
-                <form class="d-flex flex-column align-items-center" method="post" action="adminItemsList.php" enctype="multipart/form-data">
+                <form class="d-flex flex-column align-items-center" method="post" action="adminItemsList.php" enctype="multipart/form-data" autocomplete="off">
                     <div class=" mb-3 w-100">
                         <input type="text" name="name" placeholder="Food Name"
                             class="form-control border-0 border-bottom rounded-0" id="exampleInputName"

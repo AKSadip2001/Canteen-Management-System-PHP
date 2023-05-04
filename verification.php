@@ -18,9 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $row = $result->fetch_assoc();
       $data = $row['Result'];
       if($data[0]=='1'){
-        session_start();
-        $_SESSION['userId'] = $userId;
-
         header("Location:adminDashboard.php");
       }
       else{
@@ -29,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $row = $result->fetch_assoc();
           $data = $row['Result'];
           if($data[0]=='1'){
+            session_start();
+            $_SESSION['userId'] = $userId;
             header("Location:customerView.php");
           }
           else{
@@ -39,7 +38,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           }
       }
     }
-    session_start();
-    $_SESSION['userId'] = $userId;
 }
 ?>

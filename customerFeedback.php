@@ -1,3 +1,39 @@
+<?php
+
+include 'connection.php';
+
+session_start();
+
+$userId = $_SESSION['userId'];
+$_SESSION['userId'] = $userId;
+
+if(isset($_POST['submit'])){
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $image = $_FILES['image']['name'];
+
+    if($image!=""){
+        $sql = "INSERT INTO feedbacks (userId, subject, message, photo) VALUES ('$userId', '$subject', '$message', '$image')";
+        mysqli_query($db, $sql);
+        
+        $target = "./Pictures/Feedback/".basename($image);
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+            echo '<script>alert("Feedback submitted!")</script>';
+        }
+        else{
+            echo '<script>alert("Feedback failed to submitted...")</script>';
+        }
+    }
+    else{
+        $sql = "INSERT INTO feedbacks (userId, subject, message, photo) VALUES ('$userId', '$subject', '$message', 'noImage.jpg')";
+        mysqli_query($db, $sql);
+        echo '<script>alert("Feedback submitted!")</script>';
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +43,7 @@
     <title>CMS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/customerFeedback.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/babd782b9c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -17,9 +54,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="customerView.html">Home</span></a>
-            <a class="nav-item nav-link" href="customerView.html#about">About</span></a>
-            <a class="nav-item nav-link" href="customerMenu.html">Menu</a>
+            <a class="nav-item nav-link" href="customerView.php">Home</span></a>
+            <a class="nav-item nav-link" href="customerView.php#about">About</span></a>
+            <a class="nav-item nav-link" href="customerMenu.php">Menu</a>
             <a class="nav-item nav-link active" href="">Feedback</a>
           </div>
         </div>
@@ -36,33 +73,31 @@
                     <h6 class="text-center">We would love to hear your thoughts, concerns or problems with anything so we can improve!</h6>
                 </div>
             </div>
-                <form action="">
-            
-
+                <form action="customerFeedback.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <label class="col-md-8">Subject* <br>
-                            <input type="text" id="text" required="" placeholder="Food quality issue">
+                            <input type="text" name="subject" id="subject" required placeholder="Food quality issue" >
                         </label>
                     </div>
 
                     <div class="row">
                         <div class="col-md-2"></div>
                         <label class="col-md-8">Message* <br> 
-                            <textarea type="text" id="message" required="" placeholder="Write you text here" cols="48" rows="5"></textarea>
+                            <textarea type="text" name="message" id="message" required placeholder="Write you text here" cols="48" rows="5"></textarea>
                         </label>
                     </div>
 
                     <div class="row">
                         <div class="col-md-2"></div>
-                        <label for="images" class="drop-container col-md-4">Picture (If any)
-                            <input type="file" id="images" accept="image/*" required>
+                        <label for="image" class="drop-container col-md-4">Picture (If any)
+                            <input type="file" id="image" name="image" >
                         </label>
                     </div>
 
                     <div class="row">
                         <div class="col-md-2"></div>
-                        <button class="btn col-md-8">Submit</button>
+                        <button class="btn col-md-8" name="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -83,7 +118,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

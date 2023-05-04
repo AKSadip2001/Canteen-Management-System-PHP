@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- stylesheet -->
     <link rel="stylesheet" href="./CSS/adminDashboard.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body class="d-flex">
@@ -19,31 +20,31 @@
     <div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
         <ul class="nav nav-pills flex-column mb-auto mt-3">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">
+                <a class="nav-link" href="./adminDashboard.php">
                     <i class="bi bi-house-door fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminItemsList.html">
+                <a class="nav-link" href="./adminItemsList.php">
                     <i class="bi bi-menu-down fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Menu</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminBalanceReq.html">
+                <a class="nav-link active" aria-current="page" href="">
                     <i class="bi bi-wallet2 fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Balance Request</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminCustomerOrder.html">
+                <a class="nav-link" href="./adminCustomerOrder.php">
                     <i class="bi bi-view-list fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Customer Orders</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminFeedback.html">
+                <a class="nav-link" href="./adminFeedback.php">
                     <i class="bi bi-envelope-open fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Feedbacks</span>
                 </a>
@@ -70,22 +71,24 @@
             </div>
         </nav>
 
-        <!-- dashboard -->
-        <div class="container-fluid bg-yellow-light text-center pb-5">
-            <div class="mb-3">
-                <img src=" ./Pictures/chefs-removebg-preview.png" class="img-fluid" alt="...">
-            </div>
-            <div>
-                <button type=" button" class="btn btn-dashboard bg-green px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminItemsList.html" class="text-white"><i
-                            class="bi bi-menu-down fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-red px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a href=""
-                        class="text-white"><i class="bi bi-wallet2 fs-1"></i></a></button>
-                <button type="button" class="btn btn-dashboard bg-blue px-5 pt-3 pb-4 mx-2 mx-md-5 rounded-4"><a
-                        href="./adminFeedback.html" class="text-white"><i
-                            class="bi bi-envelope-open fs-1"></i></a></button>
-            </div>
-        </div>
+        <main class="item-list-container d-flex flex-column feedback-container py-5">
+            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-wallet2 fs-1"></i> Balance Requests</h1>
+            <?php
+            include 'connection.php';
+
+            $sql = "SELECT * FROM `notification` WHERE `status`='0'";
+            $result = mysqli_query($db, $sql);
+            while($row = mysqli_fetch_array($result)){
+                echo '
+                <div class="card text-center mb-2 d-inline-block mx-auto shadow-">
+                    <div class="card-body d-flex justify-content-between align-items-center gap-4">
+                        <p class="card-text mb-0">User ID - <strong class="id">'.$row['userId'].'</strong> had requested for <strong>TK <span class="bal">'.$row['amount'].'</span></strong>.</p>
+                        <button class="btn btn-primary addBtn">Add Balance</button>
+                    </div>
+                </div>';
+            }
+            ?>
+        </main>
 
         <!-- footer -->
         <footer class="footer py-5">
@@ -113,9 +116,36 @@
             </div>
         </footer>
     </div>
-
     <!-- bootstrap cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        elements = document.getElementsByClassName('addBtn');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', event => {
+                if(confirm("Are you sure you want to add Balance?")){
+                    let id = event.target.parentElement.getElementsByClassName('id')[0].innerHTML;
+                    let bal = event.target.parentElement.getElementsByClassName('bal')[0].innerHTML;
+
+                    // console.log(foodName);
+                    // console.log(2);
+                    $.ajax({
+                        type: "POST",
+                        url: "addBalance.php",
+                        data: {
+                            userId: id,
+                            balance: bal
+                        },
+                        success: function(){
+                            event.target.innerHTML = "Added";
+                            event.target.disabled = true;
+                        }
+                    });
+                }
+            }, false);
+        }
+
+    </script>
 </body>
 
 </html>

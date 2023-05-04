@@ -15,43 +15,41 @@
 </head>
 
 <body class="d-flex">
-    <body class="d-flex">
-        <!------------------- sidebar ---------------------->
-        <div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
-            <ul class="nav nav-pills flex-column mb-auto mt-3">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="">
-                        <i class="bi bi-house-door fs-5 me-2"></i>
-                        <span class="d-none d-md-inline">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./adminItemsList.html">
-                        <i class="bi bi-menu-down fs-5 me-2"></i>
-                        <span class="d-none d-md-inline">Menu</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./adminBalanceReq.html">
-                        <i class="bi bi-wallet2 fs-5 me-2"></i>
-                        <span class="d-none d-md-inline">Balance Request</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./adminBalanceReq.html">
-                        <i class="bi bi-view-list fs-5 me-2"></i>
-                        <span class="d-none d-md-inline">Customer Orders</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./adminFeedback.html">
-                        <i class="bi bi-envelope-open fs-5 me-2"></i>
-                        <span class="d-none d-md-inline">Feedbacks</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    
+    <!------------------- sidebar ---------------------->
+    <div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
+        <ul class="nav nav-pills flex-column mb-auto mt-3">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./adminDashboard.php">
+                    <i class="bi bi-house-door fs-5 me-2"></i>
+                    <span class="d-none d-md-inline">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./adminItemsList.php">
+                    <i class="bi bi-menu-down fs-5 me-2"></i>
+                    <span class="d-none d-md-inline">Menu</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./adminBalanceReq.php">
+                    <i class="bi bi-wallet2 fs-5 me-2"></i>
+                    <span class="d-none d-md-inline">Balance Request</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./adminCustomerOrder.php">
+                    <i class="bi bi-view-list fs-5 me-2"></i>
+                    <span class="d-none d-md-inline">Customer Orders</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="">
+                    <i class="bi bi-envelope-open fs-5 me-2"></i>
+                    <span class="d-none d-md-inline">Feedbacks</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <!------------------ contents ---------------------->
     <div class="w-100">
@@ -73,12 +71,35 @@
         </nav>
 
         <main class="item-list-container feedback-container py-5">
-            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-wallet2 fs-1"></i> Balance Requests</h1>
-            <div class="card text-center mb-2 col-7 col-lg-5 mx-auto shadow-lg">
-                <div class="card-body">
-                    <p class="card-text"><strong>User name</strong> had requested.</p>
-                    <a href="#" class="btn btn-primary">Add Balance</a>
-                </div>
+            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-envelope-open fs-1"></i> Feedbacks</h1>
+            <div class="accordion col-10 col-md-7 mx-auto shadow-lg" id="accordionFlushExample">
+                <?php
+                include 'connection.php';
+
+                $sql = "SELECT * FROM `feedbacks`";
+                $result = mysqli_query($db, $sql);
+                $count = 0;
+                while($row = mysqli_fetch_array($result)){
+                    echo '
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#'.$count.'" aria-expanded="false" aria-controls="'.$count.'">
+                                <strong>'.$row['subject'].'</strong>
+                            </button>
+                        </h2>
+                        <div id="'.$count.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>User ID - <strong>'.$row['userId'].'</strong></p>
+                                <p>Feedback - <strong>'.$row['message'].'</strong></p>
+                                <a href="./Pictures/Feedback/'.$row['photo'].'" download class="btn btn-primary">Image</a>
+                            </div>
+                        </div>
+                    </div>';
+                    $count++;
+                }
+                ?>
             </div>
         </main>
 
@@ -109,8 +130,6 @@
         </footer>
     </div>
 
-    <!-- js -->
-    <script src="./JS/adminItemsList.js"></script>
     <!-- bootstrap cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

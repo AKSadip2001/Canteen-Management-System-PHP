@@ -1,3 +1,12 @@
+<?php
+include 'connection.php';
+
+session_start();
+
+$userId = $_SESSION['userId'];
+$_SESSION['userId'] = $userId;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +31,11 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="">Home</span></a>
         <a class="nav-item nav-link" href="#about">About</span></a>
-        <a class="nav-item nav-link" href="customerMenu.html">Menu</a>
-        <a class="nav-item nav-link" href="customerFeedback.html">Feedback</a>
+        <a class="nav-item nav-link" href="customerMenu.php">Menu</a>
+        <a class="nav-item nav-link" href="customerFeedback.php">Feedback</a>
       </div>
     </div>
-    <a class="order_now" href="customerMenu.html">Order now</a>
+    <a class="order_now" href="customerMenu.php">Order now</a>
     <a href="log_in.php"><i class="fa-solid fa-arrow-right-from-bracket sign_out"></i></a>
   </nav>
 
@@ -86,7 +95,7 @@
   </section>
 
   <div class="button">
-    <a href="customerMenu.html">View All</a>
+    <a href="customerMenu.php">View All</a>
   </div>
 
    <!-- About Section -->

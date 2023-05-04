@@ -1,3 +1,10 @@
+<?php
+include 'connection.php';
+
+$sql = "SELECT * FROM `orders` ORDER BY status ASC, orderTime DESC;";
+$result = mysqli_query($db, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- stylesheet -->
     <link rel="stylesheet" href="./CSS/adminDashboard.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body class="d-flex">
@@ -19,31 +27,31 @@
     <div class="sidebar d-flex flex-column flex-shrink-0 pt-5 px-0 px-md-3 fw-bold">
         <ul class="nav nav-pills flex-column mb-auto mt-3">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">
+                <a class="nav-link" aria-current="page" href="./adminDashboard.php">
                     <i class="bi bi-house-door fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminItemsList.html">
+                <a class="nav-link" href="./adminItemsList.php">
                     <i class="bi bi-menu-down fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Menu</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminBalanceReq.html">
+                <a class="nav-link" href="./adminBalanceReq.php">
                     <i class="bi bi-wallet2 fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Balance Request</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminCustomerOrder.html">
+                <a class="nav-link active" href="">
                     <i class="bi bi-view-list fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Customer Orders</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./adminFeedback.html">
+                <a class="nav-link" href="./adminFeedback.php">
                     <i class="bi bi-envelope-open fs-5 me-2"></i>
                     <span class="d-none d-md-inline">Feedbacks</span>
                 </a>
@@ -73,55 +81,52 @@
          
             
 
-        <!-- dashboard -->
-        <main class="item-list-container feedback-container py-5">
-            <h1 class="mb-3 fw-bold text-center"><i class="bi bi-view-list fs-1"></i> Order List</h1><div class="accordion col-10 col-md-7 mx-auto shadow-lg" id="accordionExample">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">OrderID</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">Order List</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Order Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Food01</th>
-                        <td>2022700</td>
-                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
-                            <span class="badge badge-pill badge-success">View</span>
-                            <!-- <div class="popup" id="popup"> -->
-                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
-                              </div>
-                        </td>
-                        <td>100 tk</td>
-                        <td><button type="button" class="btn btn-primary">
-                            <span class="badge badge-pill badge-success">Delivered</span>
-                          </button></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Food02</th>
-                        <td>1910807</td>
-                        <td><button type="button" class="btn btn-primary" href="#" onclick="show('popup')"> 
-                            <span class="badge badge-pill badge-success">View</span>
-                            <!-- <div class="popup" id="popup"> -->
-                                <!-- <a href="#" onclick="hide('popup')">Close</a> -->
-                              </div>
-                        </td>
-                        <td>50 tk</td>
-                        <td><button type="button" class="btn btn-primary">
-                            <span class="badge badge-pill badge-success">Pending</span>
-                          </button></td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-            </div>
+        <main class="item-list-container d-flex flex-column align-items-center feedback-container py-5">
+            <h1 class="mb-3 fw-bold text-center display-flex"><i class="bi bi-view-list fs-1"></i> Order List</h1>
+            <table class="table w-75">
+                <thead style="background-color: #fc8240; color: white; text-align: center;">
+                    <tr>
+                    <th scope="col">OrderID</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Order List</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Order Date-Time</th>
+                    <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <?php
+                    $status="";
+                    while($row = mysqli_fetch_array($result)){
+                        if($row['status']=="0"){
+                            $status="Pending";
+                        }
+                        else{
+                            $status="Delivered";
+                        }
+                        $values = explode(',', $row['itemNames']);
+                        echo '<tr>
+                                <td class="orderId">'.$row['orderId'].'</td>
+                                <td>'.$row['userId'].'</td>
+                                <td>';
+                                foreach ($values as $x) {
+                                    echo $x;
+                                    echo '<br>';
+                                }
+                                echo 
+                                '</td>
+                                <td>'.$row['totalBill'].' tk</td>
+                                <td>'.$row['orderTime'].'</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary updateStatus">'.$status.'</button>
+                                </td>
+                            </tr>';
+                    }
+                    ?>                     
+                </tbody>
+            </table>
         </main>
 
-    
         <!-- footer -->
         <footer class="footer py-5">
             <div class="container">
@@ -151,6 +156,37 @@
 
     <!-- bootstrap cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        elements = document.getElementsByClassName('updateStatus');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', event => {
+                if(confirm("Confirm Delivery?")){
+                    let orderId = event.target.parentElement.parentElement.getElementsByClassName('orderId')[0].innerHTML;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "updateOrder.php",
+                        data: {
+                            orderId: orderId
+                        },
+                        success: function(){
+                            event.target.innerHTML = "Delivered";
+                            event.target.disabled = true;
+                        }
+                    });
+                }
+            }, false);
+
+            if(elements[i].innerHTML=="Delivered"){
+                elements[i].style.backgroundColor = 'green';
+                elements[i].style.border = 'none';
+                elements[i].style.cursor = 'auto';
+
+            }
+        }
+
+    </script>
 </body>
 
 </html>

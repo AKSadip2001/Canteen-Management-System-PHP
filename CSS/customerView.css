@@ -55,7 +55,7 @@
 .order_now{
   background-color: #b8161e;
   padding: 0.5% 1%;
-  border-radius: 5%;
+  border-radius: 5px;
   color: white;
 }
 

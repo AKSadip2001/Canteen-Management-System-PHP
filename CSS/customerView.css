@@ -245,7 +245,7 @@ footer {
 	background-color: #b8161e;
 	text-align: center;
   padding: 1rem 0;
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
 }
@@ -276,7 +276,7 @@ footer p em {
 /* About Section */
 
 #about{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -314,4 +314,53 @@ footer p em {
 
 #about .about .right_content img{
   width: 100%;
+}
+
+
+@media (max-width: 1000px) {
+  #about .about{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  #about .about .left_content{
+    width: 100%;
+  }
+  #about .about .right_content{
+    width: 70%;
+  }
+}
+
+@media (max-width: 750px) {
+  .navbar{
+    padding: 0 3rem;
+  }
+  .main_container{
+    padding: 5rem 3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .main_container .content h1{
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .main_container .content h1{
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 325px) {
+  .main_container .content h1{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 250px) {
+  .main_container .content h1{
+    font-size: 1rem;
+  }
 }

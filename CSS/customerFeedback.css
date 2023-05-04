@@ -119,11 +119,6 @@ label{
   width: 100%;
 }
 
-button{
-  margin-top: 2%;
-  margin-left: 15px;
-}
-
 .file{
   display: flex;
   justify-content: center;
@@ -161,6 +156,7 @@ input[type=file] {
   background: #fff;
   border-radius: 10px;
   border: 1px solid #555;
+  width: 100%;
 }
 
 input[type=file]::file-selector-button {
@@ -184,7 +180,7 @@ footer {
 	background-color: #b8161e;
 	text-align: center;
   padding: 1rem 0;
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
 }

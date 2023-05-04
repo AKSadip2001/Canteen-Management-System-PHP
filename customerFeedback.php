@@ -52,10 +52,10 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/"><i class="fa-solid fa-utensils"></i>CMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-brand" href="/"><i class="fa-solid fa-utensils"></i>CMS</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="customerView.php">Home</span></a>
@@ -94,14 +94,13 @@ if(isset($_POST['submit'])){
 
                     <div class="row">
                         <div class="col-md-2"></div>
-                        <label for="image" class="drop-container col-md-4">Picture (If any)
+                        <label for="image" class="drop-container col-md-8">Picture (If any)
                             <input type="file" id="image" name="image" >
                         </label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <button class="btn col-md-8" name="submit">Submit</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn mt-3" name="submit">Submit</button>
                     </div>
                 </form>
             </div>

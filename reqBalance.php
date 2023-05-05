@@ -18,7 +18,13 @@ if($data[0]=='1'){
     ));
 }
 else{
-    $sql = "INSERT INTO `notification` (`userId`, `amount`) VALUES ('$userId', '$bal');";
+    function notificationId($type){
+        $final_unique_id=$type.time().rand(10,100); 
+        return $final_unique_id;
+    }
+    $notificationId = notificationId('NO');
+
+    $sql = "INSERT INTO `notification` (`noId`,`userId`, `amount`) VALUES ('$notificationId', '$userId', '$bal');";
     $result = mysqli_query($db, $sql);
     echo json_encode(array(
         "statusCode"=>1

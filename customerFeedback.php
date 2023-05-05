@@ -17,8 +17,14 @@ if(isset($_POST['submit'])){
 
     $image = $_FILES['image']['name'];
 
+    function feedbackId($type){
+        $final_unique_id=$type.time().rand(10,100); 
+        return $final_unique_id;
+    }
+    $feedbackId = feedbackId('FD');
+
     if($image!=""){
-        $sql = "INSERT INTO feedbacks (userId, subject, message, photo) VALUES ('$userId', '$subject', '$message', '$image')";
+        $sql = "INSERT INTO feedbacks (fdId, userId, subject, message, photo) VALUES ('$feedbackId', '$userId', '$subject', '$message', '$image')";
         mysqli_query($db, $sql);
         
         $target = "./Pictures/Feedback/".basename($image);
@@ -30,7 +36,7 @@ if(isset($_POST['submit'])){
         }
     }
     else{
-        $sql = "INSERT INTO feedbacks (userId, subject, message, photo) VALUES ('$userId', '$subject', '$message', 'noImage.jpg')";
+        $sql = "INSERT INTO feedbacks (fdId, userId, subject, message, photo) VALUES ('$feedbackId', '$userId', '$subject', '$message', 'noImage.jpg')";
         mysqli_query($db, $sql);
         echo '<script>alert("Feedback submitted!")</script>';
     }

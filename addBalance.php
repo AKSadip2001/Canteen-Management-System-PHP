@@ -4,7 +4,7 @@ include 'connection.php';
 $userId = $_POST['userId'];
 $balance = $_POST['balance'];
 
-$sql = "UPDATE `notification` SET `status` = '1' WHERE `notification`.`userId` = '$userId';";
+$sql = "UPDATE `notification` SET `status` = '1' WHERE `notification`.`userId` = '$userId' AND `status`='0';";
 $result = mysqli_query($db, $sql);
 
 

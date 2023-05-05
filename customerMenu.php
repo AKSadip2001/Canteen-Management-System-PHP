@@ -28,59 +28,59 @@ $row = mysqli_fetch_array($result)
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-<!-- modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel">Orders List</h4>
-          </div>
-          <div class="modal-body">
-            <table class="table">
-              <thead class="table" style="background-color: #b8161e; color: white;">
-                <tr>
-                  <th scope="col">Order#</th>
-                  <th scope="col">Items</th>
-                  <th scope="col">Bill</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $sql2 = "SELECT * FROM `orders` WHERE userId='$userId' ORDER BY orderTime DESC";
-                $result2 = mysqli_query($db, $sql2);
-                $status = "";
-                while($row2 = mysqli_fetch_array($result2)){
-                  if($row2['status']=="0"){
-                    $status="Pending";
+  <!-- modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Orders List</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead class="table" style="background-color: #b8161e; color: white;">
+                  <tr>
+                    <th scope="col">Order#</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Bill</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $sql2 = "SELECT * FROM `orders` WHERE userId='$userId' ORDER BY orderTime DESC";
+                  $result2 = mysqli_query($db, $sql2);
+                  $status = "";
+                  while($row2 = mysqli_fetch_array($result2)){
+                    if($row2['status']=="0"){
+                      $status="Pending";
+                    }
+                    else{
+                      $status="Delivered";
+                    }
+                    $values = explode(',', $row2['itemNames']);
+                    echo '<tr>
+                            <td>'.$row2['orderId'].'</td>
+                            <td>';
+                            foreach ($values as $x) {
+                              echo $x;
+                              echo '<br>';
+                            }
+                            echo 
+                            '</td>
+                            <td>'.$row2['totalBill'].'</td>
+                            <td>'.$status.'</td>
+                          </tr>';
                   }
-                  else{
-                    $status="Delivered";
-                  }
-                  $values = explode(',', $row2['itemNames']);
-                  echo '<tr>
-                          <td>'.$row2['orderId'].'</td>
-                          <td>';
-                          foreach ($values as $x) {
-                            echo $x;
-                            echo '<br>';
-                          }
-                          echo 
-                          '</td>
-                          <td>'.$row2['totalBill'].'</td>
-                          <td>'.$status.'</td>
-                        </tr>';
-                }
-                ?>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-      </div>
+                  ?>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
   </div>
-</div>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -160,8 +160,6 @@ $row = mysqli_fetch_array($result)
 
   </section>
 
-    
-
   <footer>
       <div class="container">
           <div class="row">
@@ -177,30 +175,28 @@ $row = mysqli_fetch_array($result)
       </div>
   </footer>
 
-<script src="./JS/app.js"></script>
-<script>
-  function addBal(){
-    bal = parseInt(prompt("Enter amount to be added: "));
-    $.ajax({
-      type: "POST",
-      url: "reqBalance.php",
-      data:{
-          bal: bal
-      },
-      success: function(dataResult){
-          var dataResult = JSON.parse(dataResult);
-          if(dataResult.statusCode==1){
-              alert("Balance request send!");
-          }
-          else{
-              alert("You have already requested for balance.");
-          }
-      }
-    });
-  }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+  <script src="./JS/app.js"></script>
+  <script>
+    function addBal(){
+      bal = parseInt(prompt("Enter amount to be added: "));
+      $.ajax({
+        type: "POST",
+        url: "reqBalance.php",
+        data:{
+            bal: bal
+        },
+        success: function(dataResult){
+            var dataResult = JSON.parse(dataResult);
+            if(dataResult.statusCode==1){
+                alert("Balance request send!");
+            }
+            else{
+                alert("You have already requested for balance.");
+            }
+        }
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ $totalItems = $_POST['totalItems'];
 
 function orderId($type)
 {
-   $final_unique_id=$type.time(); 
+   $final_unique_id=$type.time().rand(10,100); 
    return $final_unique_id;
 }
 $orderId = orderId('OD');

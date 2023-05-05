@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
                     <div class="row">
                         <div class="col-md-2"></div>
                         <label class="col-md-8">Subject* <br>
-                            <input type="text" name="subject" id="subject" required placeholder="Food quality issue" >
+                            <input type="text" name="subject" id="subject" required placeholder="E.g. Food quality issue" >
                         </label>
                     </div>
 
